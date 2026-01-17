@@ -1,0 +1,459 @@
+/* Analytics页面样式 */
+.analytics-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+.analytics-container::-webkit-scrollbar {
+  display: none;
+}
+
+.analytics-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.analytics-header {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.analytics-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(15, 23, 42);
+  letter-spacing: -0.025em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.analytics-title-icon {
+  color: rgb(37, 99, 235);
+}
+
+.analytics-subtitle {
+  font-size: 14px;
+  color: rgb(100, 116, 139);
+}
+
+.analytics-time-selector {
+  display: flex;
+  align-items: center;
+}
+
+.time-select {
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 10px;
+  font-size: 14px;
+  color: rgb(71, 85, 105);
+  outline: none;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.time-select:focus {
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.analytics-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 640px) {
+  .analytics-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .analytics-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 200ms;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  transform: translateY(-2px);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: rgb(100, 116, 139);
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(30, 41, 59);
+  margin-bottom: 8px;
+}
+
+.stat-change {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.stat-change.up {
+  color: rgb(16, 185, 129);
+}
+
+.stat-change.down {
+  color: rgb(239, 68, 68);
+}
+
+.analytics-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 1024px) {
+  .analytics-charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.chart-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.chart-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(30, 41, 59);
+  margin: 0;
+}
+
+.chart-action {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(148, 163, 184);
+  transition: all 200ms;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.chart-action:hover {
+  background: rgb(241, 245, 249);
+  color: rgb(71, 85, 105);
+}
+
+.chart-placeholder {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  height: 100%;
+  width: 100%;
+}
+
+.chart-bar {
+  flex: 1;
+  background: linear-gradient(to top, rgb(37, 99, 235), rgb(147, 197, 253));
+  border-radius: 4px 4px 0 0;
+  min-height: 20px;
+  transition: all 300ms;
+}
+
+.chart-bar:hover {
+  opacity: 0.8;
+}
+
+.chart-pie {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--color) 0% var(--percentage),
+    transparent var(--percentage) 100%
+  );
+  position: relative;
+}
+
+.pie-segment {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--color) 0% var(--percentage),
+    transparent var(--percentage) 100%
+  );
+}
+
+.analytics-bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 1024px) {
+  .analytics-bottom-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.analytics-activities {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.analytics-performance {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.performance-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(30, 41, 59);
+  margin-bottom: 20px;
+}
+
+.performance-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metric-label {
+  font-size: 13px;
+  color: rgb(100, 116, 139);
+  font-weight: 500;
+}
+
+.metric-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(30, 41, 59);
+}
+
+.metric-bar {
+  height: 8px;
+  width: 100%;
+  background: rgb(241, 245, 249);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.metric-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+.analytics-tables-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+}
+
+@media (min-width: 1024px) {
+  .analytics-tables-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.table-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.table-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(30, 41, 59);
+  margin-bottom: 20px;
+}
+
+.table-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgb(241, 245, 249);
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-row.header {
+  font-weight: 600;
+  color: rgb(71, 85, 105);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid rgb(226, 232, 240);
+  padding-bottom: 12px;
+  margin-bottom: 4px;
+}
+
+.table-cell {
+  font-size: 14px;
+  color: rgb(30, 41, 59);
+  display: flex;
+  align-items: center;
+}
+
+.table-cell.success {
+  color: rgb(16, 185, 129);
+  font-weight: 600;
+}
+
+.activities-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(30, 41, 59);
+  margin-bottom: 20px;
+}
+
+.activities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  transition: all 200ms;
+}
+
+.activity-item:hover {
+  background: rgb(248, 250, 252);
+}
+
+.activity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.activity-dot.success {
+  background: rgb(16, 185, 129);
+}
+
+.activity-dot.info {
+  background: rgb(37, 99, 235);
+}
+
+.activity-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-action {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(30, 41, 59);
+  margin-bottom: 2px;
+}
+
+.activity-project {
+  font-size: 12px;
+  color: rgb(100, 116, 139);
+}
+
+.activity-time {
+  font-size: 12px;
+  color: rgb(148, 163, 184);
+  white-space: nowrap;
+}

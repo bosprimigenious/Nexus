@@ -1,0 +1,137 @@
+.login-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgb(239, 246, 255) 0%, rgb(255, 255, 255) 100%);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+  margin: 0 0 8px 0;
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: rgb(100, 116, 139);
+  margin: 0;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(71, 85, 105);
+}
+
+.form-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-input-icon {
+  position: absolute;
+  left: 12px;
+  color: rgb(148, 163, 184);
+  pointer-events: none;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 8px;
+  font-size: 14px;
+  color: rgb(15, 23, 42);
+  outline: none;
+  transition: all 0.2s;
+}
+
+.form-input:focus {
+  border-color: rgb(37, 99, 235);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-input-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: rgb(148, 163, 184);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.form-input-toggle:hover {
+  color: rgb(71, 85, 105);
+}
+
+.login-submit-button {
+  width: 100%;
+  padding: 12px;
+  background: rgb(37, 99, 235);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+
+.login-submit-button:hover {
+  background: rgb(29, 78, 216);
+}
+
+.login-footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.login-switch-button {
+  background: none;
+  border: none;
+  color: rgb(37, 99, 235);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.login-switch-button:hover {
+  color: rgb(29, 78, 216);
+  text-decoration: underline;
+}

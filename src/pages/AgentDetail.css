@@ -1,0 +1,231 @@
+.agent-detail-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgb(248, 250, 252);
+}
+
+.agent-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgb(226, 232, 240);
+  background: white;
+}
+
+.agent-detail-back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgb(241, 245, 249);
+  border-radius: 8px;
+  cursor: pointer;
+  color: rgb(71, 85, 105);
+  transition: all 0.2s;
+}
+
+.agent-detail-back-button:hover {
+  background: rgb(226, 232, 240);
+  color: rgb(30, 41, 59);
+}
+
+.agent-detail-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  margin: 0;
+}
+
+.agent-detail-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.agent-detail-main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.agent-detail-card {
+  background: white;
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.agent-detail-header-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgb(241, 245, 249);
+}
+
+.agent-detail-icon-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.agent-detail-info {
+  flex: 1;
+}
+
+.agent-detail-name {
+  font-size: 28px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+  margin: 0 0 8px 0;
+}
+
+.agent-detail-role {
+  font-size: 16px;
+  color: rgb(100, 116, 139);
+  margin: 0 0 12px 0;
+}
+
+.agent-detail-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(71, 85, 105);
+}
+
+.agent-detail-status-dot {
+  font-size: 10px;
+}
+
+.agent-detail-status-dot.online {
+  color: rgb(34, 197, 94);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.agent-detail-status-dot.busy {
+  color: rgb(249, 115, 22);
+}
+
+.agent-detail-status-dot.idle {
+  color: rgb(148, 163, 184);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.agent-detail-description {
+  margin-bottom: 32px;
+}
+
+.agent-detail-description h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(30, 41, 59);
+  margin: 0 0 12px 0;
+}
+
+.agent-detail-description p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgb(71, 85, 105);
+  margin: 0;
+}
+
+.agent-detail-stats {
+  margin-bottom: 32px;
+}
+
+.agent-detail-stats h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(30, 41, 59);
+  margin: 0 0 16px 0;
+}
+
+.stat-item {
+  margin-bottom: 16px;
+}
+
+.stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(71, 85, 105);
+}
+
+.stat-value {
+  font-weight: 600;
+  color: rgb(30, 41, 59);
+}
+
+.stat-progress-bar {
+  height: 8px;
+  width: 100%;
+  background: rgb(241, 245, 249);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.stat-progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+.agent-detail-actions {
+  display: flex;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid rgb(241, 245, 249);
+}
+
+.action-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid rgb(226, 232, 240);
+  background: white;
+  color: rgb(71, 85, 105);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-button:hover {
+  background: rgb(248, 250, 252);
+  border-color: rgb(203, 213, 225);
+}
+
+.action-button.primary {
+  background: rgb(37, 99, 235);
+  color: white;
+  border-color: rgb(37, 99, 235);
+}
+
+.action-button.primary:hover {
+  background: rgb(29, 78, 216);
+  border-color: rgb(29, 78, 216);
+}

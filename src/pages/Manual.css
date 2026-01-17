@@ -1,0 +1,251 @@
+/* Manual页面样式 */
+.manual-container {
+  width: 100%;
+  min-height: 100vh;
+  background: white;
+  padding: 24px;
+}
+
+.manual-header {
+  max-width: 1200px;
+  margin: 0 auto 48px;
+  display: flex;
+  align-items: center;
+}
+
+.manual-header-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.manual-header-icon {
+  color: rgb(37, 99, 235);
+}
+
+.manual-header-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: rgb(15, 23, 42);
+  margin: 0;
+}
+
+.manual-header-subtitle {
+  font-size: 16px;
+  color: rgb(100, 116, 139);
+  margin: 0;
+}
+
+.manual-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.manual-intro {
+  background: rgb(248, 250, 252);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+.manual-intro h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+  margin: 0 0 16px;
+}
+
+.manual-intro p {
+  font-size: 16px;
+  color: rgb(71, 85, 105);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.manual-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.manual-section {
+  background: white;
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 200ms;
+}
+
+.manual-section:hover {
+  border-color: rgb(203, 213, 225);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.manual-section-header {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.manual-section-header:hover {
+  background: rgb(248, 250, 252);
+}
+
+.manual-section-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.manual-section-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgb(239, 246, 255);
+  color: rgb(37, 99, 235);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.manual-section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+  margin: 0;
+}
+
+.manual-section-arrow {
+  color: rgb(100, 116, 139);
+  transition: transform 200ms;
+}
+
+.manual-section-arrow.expanded {
+  transform: rotate(90deg);
+}
+
+.manual-section-content {
+  padding: 0 24px 24px;
+  border-top: 1px solid rgb(241, 245, 249);
+  animation: manual-expand 200ms ease-out;
+}
+
+@keyframes manual-expand {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+.manual-item {
+  padding: 20px 0;
+  border-bottom: 1px solid rgb(241, 245, 249);
+}
+
+.manual-item:last-child {
+  border-bottom: none;
+}
+
+.manual-item-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.manual-item-icon {
+  width: 24px;
+  height: 24px;
+  color: rgb(37, 99, 235);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.manual-item-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+  margin: 0;
+}
+
+.manual-item-text {
+  font-size: 14px;
+  color: rgb(71, 85, 105);
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 36px;
+}
+
+.manual-quick-actions {
+  background: rgb(248, 250, 252);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.manual-quick-actions-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+  margin: 0 0 24px;
+}
+
+.manual-quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.manual-quick-action-card {
+  background: white;
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 200ms;
+  color: rgb(37, 99, 235);
+}
+
+.manual-quick-action-card:hover {
+  background: rgb(239, 246, 255);
+  border-color: rgb(37, 99, 235);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.manual-quick-action-card span {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(15, 23, 42);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .manual-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .manual-header-content {
+    width: 100%;
+  }
+
+  .manual-quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+}

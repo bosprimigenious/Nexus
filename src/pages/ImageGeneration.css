@@ -1,0 +1,468 @@
+/* ImageGeneration页面样式 */
+.image-generation-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.image-header {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  border-bottom: 1px solid rgb(226, 232, 240);
+  background: white;
+  z-index: 20;
+}
+
+.image-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(100, 116, 139);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.back-button:hover {
+  background: rgb(241, 245, 249);
+  color: rgb(71, 85, 105);
+}
+
+.image-header-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.image-header-icon {
+  color: rgb(239, 68, 68);
+}
+
+.image-header-title h1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(30, 41, 59);
+  margin: 0;
+}
+
+.image-header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.header-action-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(100, 116, 139);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.header-action-button:hover {
+  background: rgb(241, 245, 249);
+  color: rgb(71, 85, 105);
+}
+
+.image-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.image-main-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  overflow-y: auto;
+  gap: 24px;
+  position: relative;
+}
+
+.prompt-section {
+  background: white;
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.prompt-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgb(241, 245, 249);
+  background: rgb(248, 250, 252);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prompt-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(30, 41, 59);
+}
+
+.upload-image-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: white;
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(71, 85, 105);
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.upload-image-button:hover {
+  background: rgb(241, 245, 249);
+  border-color: rgb(203, 213, 225);
+}
+
+.prompt-textarea {
+  min-height: 120px;
+  padding: 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  color: rgb(30, 41, 59);
+  resize: none;
+  line-height: 1.6;
+}
+
+.prompt-textarea::placeholder {
+  color: rgb(148, 163, 184);
+}
+
+.prompt-footer {
+  padding: 16px 20px;
+  border-top: 1px solid rgb(241, 245, 249);
+  background: rgb(248, 250, 252);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prompt-tips {
+  font-size: 12px;
+  color: rgb(100, 116, 139);
+}
+
+.generate-image-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: rgb(239, 68, 68);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 200ms;
+}
+
+.generate-image-button:hover:not(:disabled) {
+  background: rgb(220, 38, 38);
+}
+
+.generate-image-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.generating-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.generating-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: rgb(239, 68, 68);
+}
+
+.generating-icon {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.generating-content span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.images-grid {
+  background: white;
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.grid-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.grid-header span {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(30, 41, 59);
+}
+
+.grid-view-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(100, 116, 139);
+  background: transparent;
+  border: 1px solid rgb(226, 232, 240);
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.grid-view-button:hover {
+  background: rgb(241, 245, 249);
+  border-color: rgb(203, 213, 225);
+}
+
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.image-card {
+  position: relative;
+  aspect-ratio: 1;
+  background: rgb(248, 250, 252);
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.image-card:hover {
+  border-color: rgb(239, 68, 68);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(148, 163, 184);
+  background: rgb(241, 245, 249);
+}
+
+.image-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.image-card:hover .image-actions {
+  opacity: 1;
+}
+
+.image-action-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  border: none;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.image-action-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 60px 20px;
+}
+
+.empty-icon {
+  color: rgb(203, 213, 225);
+  opacity: 0.5;
+}
+
+.empty-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(71, 85, 105);
+}
+
+.empty-desc {
+  font-size: 14px;
+  color: rgb(100, 116, 139);
+  text-align: center;
+  margin: 0;
+}
+
+.image-sidebar {
+  width: 280px;
+  border-left: 1px solid rgb(226, 232, 240);
+  background: rgb(248, 250, 252);
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.sidebar-section {
+  margin-bottom: 32px;
+}
+
+.sidebar-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(30, 41, 59);
+  margin-bottom: 16px;
+}
+
+.param-item {
+  margin-bottom: 16px;
+}
+
+.param-item label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(100, 116, 139);
+  margin-bottom: 8px;
+}
+
+.param-select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: rgb(30, 41, 59);
+  background: white;
+  border: 1px solid rgb(226, 232, 240);
+  outline: none;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.param-select:focus {
+  border-color: rgb(239, 68, 68);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.image-history {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: white;
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.history-item:hover {
+  border-color: rgb(239, 68, 68);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.history-thumbnail {
+  width: 60px;
+  height: 60px;
+  background: rgb(226, 232, 240);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.history-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.history-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgb(30, 41, 59);
+}
+
+.history-time {
+  font-size: 11px;
+  color: rgb(100, 116, 139);
+}
