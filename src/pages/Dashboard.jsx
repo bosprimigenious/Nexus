@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
+import {
   Bell, Paperclip, Microphone, ArrowUp,
   FilmStrip, PaintBrush, Image, MusicNote
 } from '@phosphor-icons/react';
@@ -33,35 +33,61 @@ const Dashboard = () => {
   };
 
   const handleMicrophoneClick = async () => {
+    console.log('🎤 麦克风按钮被点击了！');
+    console.log('当前录音状态:', isRecording ? '正在录音' : '未录音');
+    console.log('输入框内容:', inputValue);
+    console.log('输入框是否为空:', !inputValue.trim());
+    
     if (isRecording) {
+      console.log('🛑 停止录音流程开始...');
       // 停止录音
       if (mediaRecorderRef.current) {
+        console.log('🛑 调用 mediaRecorder.stop()');
         mediaRecorderRef.current.stop();
         setIsRecording(false);
+        console.log('✅ 录音已停止，isRecording 设为 false');
+      } else {
+        console.warn('⚠️ mediaRecorderRef.current 为 null，无法停止录音');
       }
     } else {
+      console.log('🎙️ 开始录音流程开始...');
       // 开始录音
       try {
+        console.log('🔑 正在请求麦克风权限...');
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        console.log('✅ 麦克风权限获取成功，stream:', stream);
+        
         const mediaRecorder = new MediaRecorder(stream);
         mediaRecorderRef.current = mediaRecorder;
-        
+        console.log('✅ MediaRecorder 创建成功:', mediaRecorder);
+
         const chunks = [];
         mediaRecorder.ondataavailable = (e) => {
+          console.log('📦 收到音频数据块，大小:', e.data.size);
           chunks.push(e.data);
         };
-        
+
         mediaRecorder.onstop = () => {
+          console.log('⏹️ MediaRecorder onstop 事件触发');
           const blob = new Blob(chunks, { type: 'audio/wav' });
-          console.log('录音完成，音频大小:', blob.size);
+          console.log('✅ 录音完成，音频大小:', blob.size, 'bytes');
+          console.log('📁 生成的 Blob:', blob);
+          
           // 这里可以处理录音文件
-          stream.getTracks().forEach(track => track.stop());
+          stream.getTracks().forEach(track => {
+            console.log('🔌 停止音轨:', track);
+            track.stop();
+          });
         };
-        
+
+        console.log('▶️ 开始录音...');
         mediaRecorder.start();
         setIsRecording(true);
+        console.log('✅ 录音已开始，isRecording 设为 true');
+        console.log('🎤 可以开始说话了...');
       } catch (error) {
-        console.error('无法访问麦克风:', error);
+        console.error('❌ 无法访问麦克风:', error);
+        console.error('错误详情:', error.name, error.message);
         alert('无法访问麦克风，请检查权限设置');
       }
     }
@@ -83,7 +109,7 @@ const Dashboard = () => {
           <span className="status-dot"></span>
           系统运行正常
         </div>
-        <button 
+        <button
           className="notification-button"
           onClick={handleNotificationClick}
         >
@@ -109,7 +135,7 @@ const Dashboard = () => {
           style={{ display: 'none' }}
           onChange={handleFileChange}
         />
-        <button 
+        <button
           className="input-add-button-simple"
           onClick={handleFileSelect}
           title="选择文件"
@@ -117,7 +143,7 @@ const Dashboard = () => {
         >
           <Paperclip size={20} weight="regular" />
         </button>
-        <input 
+        <input
           type="text"
           className="input-simple"
           placeholder="有问题，尽管问"
@@ -130,10 +156,9 @@ const Dashboard = () => {
             }
           }}
         />
-        <button 
+        <button
           className="input-send-button-simple"
           onClick={inputValue.trim() ? handleSubmit : handleMicrophoneClick}
-          disabled={!inputValue.trim() && !isRecording}
           style={isRecording ? { color: 'rgb(239, 68, 68)' } : {}}
           title={isRecording ? '停止录音' : inputValue.trim() ? '发送' : '开始录音'}
           aria-label={isRecording ? '停止录音' : inputValue.trim() ? '发送消息' : '开始录音'}
@@ -148,35 +173,35 @@ const Dashboard = () => {
 
       {/* 快捷卡片 */}
       <div className="mode-grid-single">
-        <ModeCard 
-          icon={<FilmStrip weight="fill" />} 
-          title="视频生成" 
-          desc="脚本转视频" 
-          color="rgb(219, 234, 254)" 
+        <ModeCard
+          icon={<FilmStrip weight="fill" />}
+          title="视频生成"
+          desc="脚本转视频"
+          color="rgb(219, 234, 254)"
           textColor="rgb(37, 99, 235)"
           path="/video-generation"
         />
-        <ModeCard 
-          icon={<PaintBrush weight="fill" />} 
-          title="UI/UX设计" 
-          desc="原型设计" 
-          color="rgb(255, 237, 213)" 
+        <ModeCard
+          icon={<PaintBrush weight="fill" />}
+          title="UI/UX设计"
+          desc="原型设计"
+          color="rgb(255, 237, 213)"
           textColor="rgb(249, 115, 22)"
           path="/ui-design"
         />
-        <ModeCard 
-          icon={<Image weight="fill" />} 
-          title="图像生成" 
-          desc="AI绘图" 
-          color="rgb(254, 226, 226)" 
+        <ModeCard
+          icon={<Image weight="fill" />}
+          title="图像生成"
+          desc="AI绘图"
+          color="rgb(254, 226, 226)"
           textColor="rgb(239, 68, 68)"
           path="/image-generation"
         />
-        <ModeCard 
-          icon={<MusicNote weight="fill" />} 
-          title="音频处理" 
-          desc="音乐创作" 
-          color="rgb(243, 232, 255)" 
+        <ModeCard
+          icon={<MusicNote weight="fill" />}
+          title="音频处理"
+          desc="音乐创作"
+          color="rgb(243, 232, 255)"
           textColor="rgb(168, 85, 247)"
           path="/audio-processing"
         />
@@ -199,8 +224,8 @@ const Dashboard = () => {
 };
 
 const IconButton = ({ icon, title, onClick }) => (
-  <button 
-    className="icon-button" 
+  <button
+    className="icon-button"
     title={title}
     onClick={onClick || (() => console.log(title))}
   >
@@ -210,9 +235,9 @@ const IconButton = ({ icon, title, onClick }) => (
 
 const ModeCard = ({ icon, title, desc, color, textColor, path }) => {
   const navigate = useNavigate();
-  
+
   return (
-    <button 
+    <button
       className="mode-card"
       onClick={() => navigate(path)}
     >
