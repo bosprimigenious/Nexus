@@ -45,12 +45,6 @@ const AudioProcessing = () => {
     <div className="audio-processing-container">
       <header className="audio-header">
         <div className="audio-header-left">
-          <button 
-            className="back-button"
-            onClick={() => navigate('/')}
-          >
-            <X size={20} />
-          </button>
           <div className="audio-header-title">
             <MusicNote weight="fill" size={24} className="audio-header-icon" />
             <h1>音频处理</h1>

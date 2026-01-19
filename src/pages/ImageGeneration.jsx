@@ -43,12 +43,6 @@ const ImageGeneration = () => {
     <div className="image-generation-container">
       <header className="image-header">
         <div className="image-header-left">
-          <button 
-            className="back-button"
-            onClick={() => navigate('/')}
-          >
-            <X size={20} />
-          </button>
           <div className="image-header-title">
             <Image weight="fill" size={24} className="image-header-icon" />
             <h1>图像生成</h1>

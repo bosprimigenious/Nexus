@@ -50,12 +50,6 @@ const VideoGeneration = () => {
     <div className="video-generation-container">
       <header className="video-header">
         <div className="video-header-left">
-          <button 
-            className="back-button"
-            onClick={() => navigate('/')}
-          >
-            <X size={20} />
-          </button>
           <div className="video-header-title">
             <FilmStrip weight="fill" size={24} className="video-header-icon" />
             <h1>视频生成</h1>

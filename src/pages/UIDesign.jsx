@@ -19,12 +19,6 @@ const UIDesign = () => {
     <div className="ui-design-container">
       <header className="design-header">
         <div className="design-header-left">
-          <button 
-            className="back-button"
-            onClick={() => navigate('/')}
-          >
-            <X size={20} />
-          </button>
           <div className="design-header-title">
             <PaintBrush weight="fill" size={24} className="design-header-icon" />
             <h1>UI/UX设计</h1>
